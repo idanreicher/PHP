@@ -1,15 +1,17 @@
 <?php
-class Post{
-        
-    public function __construct(){
-       
-        DB::getInstance();
-        DB::setCharsetEncoding();
+class Post
+{
+    private $db;
+
+    public function __construct()
+    {
+        $this->db = new Database;
     }
+
         
-    public function getPosts(){
-        
-        DB::query("SELECT * FROM posts");
+    public function getPosts()
+    {
+        $this->db("SELECT * FROM posts");
 
         $results = DB::resultSet();
 
