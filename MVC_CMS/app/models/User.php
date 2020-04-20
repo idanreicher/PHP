@@ -24,18 +24,40 @@
       }
 
       // Find user by email
-      public function findUserByEmail($email)
+      public function findUserByEmail($email, $login = false)
       {
           $this->db->query('SELECT * FROM users WHERE email = :email');
           $this->db->bind(':email', $email);
 
           $row = $this->db->single();
-         
+          
+          if ($login) {
+              return $row;
+          }
+
           // Check row
           if ($this->db->rowCount() > 0) {
               return true;
           } else {
               return false;
           }
+      }
+
+      // Find user by id
+      public function getUserById($id)
+      {
+          $this->db->query('SELECT * FROM users WHERE id = :id');
+          $this->db->bind(':id', $Id);
+
+          return $this->db->single();
+      }
+
+      public function login($email, $password)
+      {
+          $user_data = $this->findUserByEmail($email, true);
+          
+          $user_varified = (password_verify($password, $user_data->password)) ? $user_data : $user_data = false;
+        
+          return $user_varified;
       }
   }

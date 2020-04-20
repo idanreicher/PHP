@@ -14,14 +14,24 @@
             <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
           </li>
         </ul>
-        
+  
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
-          </li>
+        <li class="nav-item">
+              <span class="nav-link ">Welcome <?php echo $_SESSION['user_name']; ?></span>
+            </li>
+          <?php if (isset($_SESSION['user_id'])) : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Loguot</a>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
+
+            </li>
+          <?php endif ?>
         </ul>
       </div>
     </div>
