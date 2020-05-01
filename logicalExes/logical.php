@@ -23,7 +23,7 @@ function Fibonacci($number)
 
 $number = 10;
 for ($counter = 0; $counter<$number;$counter++) {
-    // echo Fibonacci($counter),' ,';
+    // echo Fibonacci($counter).' ,';
 }
 
 //  Reverse of any number
@@ -73,4 +73,18 @@ function isLeapYear($year)
 }
 
 
-isLeapYear(2008);
+//isLeapYear(2008);
+
+$rows=10;
+   for ($i=$rows;$i>=1;--$i) {
+       for ($space=0;$space<$rows-$i;++$space) {
+           echo "  ";
+       }
+       for ($j=$i;$j<=2*$i-1;++$j) {
+           echo "* ";
+       }
+       for ($j=0;$j<$i-1;++$j) {
+           echo "* ";
+       }
+       echo "\n";
+   }
