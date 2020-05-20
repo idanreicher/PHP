@@ -1,0 +1,19 @@
+{
+    "name": "idan/namespaces",
+    "description": "oop",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Idan Reicher",
+            "email": "idanreicher@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\":"src",
+            "Acme\\":"src"
+        }
+    },
+    "require": {}
+}
